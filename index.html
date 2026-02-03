@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #9fe3a1, #e4ffe6);
+        font-family: 'Pacifico', cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    /* Floating flowers */
+    .flower {
+        position: absolute;
+        font-size: 2.5rem;
+        opacity: 0.3;
+        animation: float 12s linear infinite;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh); }
+        to { transform: translateY(-120vh); }
+    }
+
+    .card {
+        background: #f7fff7;
+        padding: 45px 55px;
+        border-radius: 35px;
+        text-align: center;
+        box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+        z-index: 2;
+    }
+
+    h1 {
+        color: #2f6f3e;
+        font-size: 2.6rem;
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        position: relative;
+        height: 90px;
+        margin-top: 20px;
+    }
+
+    button {
+        font-family: 'Pacifico', cursive;
+        font-size: 1.4rem;
+        padding: 12px 30px;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.2s ease;
+    }
+
+    #yes {
+        background: #5dbb7b;
+        color: white;
+        left: 18%;
+    }
+
+    #yes:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #7dffad;
+    }
+
+    #no {
+        background: #ef7b7b;
+        color: white;
+        left: 55%;
+    }
+
+    /* Popup */
+    .popup {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+
+    .popup-box {
+        background: #ffffff;
+        padding: 45px;
+        border-radius: 35px;
+        text-align: center;
+        animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.6); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-box h2 {
+        color: #2f6f3e;
+        font-size: 2.1rem;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Floating flowers -->
+<div class="flower" style="left:10%; animation-duration:14s;">🌻</div>
+<div class="flower" style="left:25%; animation-duration:12s;">🌹</div>
+<div class="flower" style="left:45%; animation-duration:16s;">🌻</div>
+<div class="flower" style="left:65%; animation-duration:13s;">🌹</div>
+<div class="flower" style="left:85%; animation-duration:15s;">🌻</div>
+
+<div class="card">
+    <h1>Will you be my valentine? 💚</h1>
+
+    <div class="buttons">
+        <button id="yes">Yes 💕</button>
+        <button id="no">No 🙃</button>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>Yes! See ya on February 14, darlingg 💚✨</h2>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const popup = document.getElementById("popup");
+
+    noBtn.addEventListener("mouseenter", () => {
+        const x = Math.random() * 260;
+        const y = Math.random() * 50;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+        popup.style.display = "flex";
+    });
+</script>
+
+</body>
+</html>
